@@ -1,0 +1,51 @@
+.bg {
+    background-image: url('https://wallpapers.com/images/featured/nature-2ygv7ssy2k0lxlzu.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    max-height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    /* background: rgba(255, 255, 255, 0.8); */
+    padding: 20px;
+    border-radius: 10px;
+  }
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .profile-header .ml-4 {
+    margin-left: 1.5rem;
+  }
+  
+  .profile-header .ml-auto {
+    margin-left: auto;
+  }
+  
+  .profile-header .text-right {
+    text-align: right;
+  }
+  
+  .profile-posts img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border: 2px solid black;
+  }
+  
+  .button-group .btn-long {
+    flex: 1;
+    margin-right: 1rem;
+  }
+  
+  .button-group .btn-long:last-child {
+    margin-right: 0;
+  }
+  
