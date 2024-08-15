@@ -33,7 +33,7 @@ export default function EditProfilePage() {
         const token = localStorage.getItem('token'); // Retrieve the token from local storage
 
         if (token) {
-          const response = await axios.put('http://localhost:2000/api/edit-profile', formData,{
+          await axios.put('http://localhost:2000/api/edit-profile', formData,{
             headers: { 
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${token}` // Include the token in the Authorization header

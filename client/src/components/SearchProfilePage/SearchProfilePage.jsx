@@ -1,16 +1,13 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './SearchPage.css';
 import axios from 'axios';
 
-
-export default function SearchProfilePage({username}) {
-
+export default function SearchProfilePage({ username }) {
     const [error, setError] = useState('');
     const [profile, setProfile] = useState(null);
 
-
-    const handleSearch = async () => {
+    const handleSearch = useCallback(async () => {
         try {
             const response = await axios.get(`http://localhost:2000/api/find/${username}`);
             setProfile(response.data);
@@ -24,11 +21,11 @@ export default function SearchProfilePage({username}) {
                 setProfile(null);
             }
         }
-    };
+    }, [username]);
 
     useEffect(() => {
         handleSearch();
-    }, []);
+    }, [handleSearch]);
 
     if (!profile && !error) {
         return <div>Loading...</div>;
@@ -62,17 +59,15 @@ export default function SearchProfilePage({username}) {
                                         <div><strong>{profile.followingCount}</strong> following</div>
                                     </div>
                                 </div>
-                                {profile.privacy !==1?(
-
+                                {profile.privacy !== 1 ? (
                                     <div className="d-flex justify-content-between mb-4 button-group">
-                                    <button className="btn btn-primary btn-long">Follow</button>
-                                    <button className="btn btn-light btn-long">Message</button>
+                                        <button className="btn btn-primary btn-long">Follow</button>
+                                        <button className="btn btn-light btn-long">Message</button>
                                     </div>
-                                    ):(
+                                ) : (
                                     <div className="d-flex justify-content-between mb-4 button-group">
-                                    <button className="btn btn-primary btn-long">Follow</button>
+                                        <button className="btn btn-primary btn-long">Follow</button>
                                     </div>
-
                                 )}
                                 {profile.privacy !== 1 ? (
                                     <div className="profile-posts">
